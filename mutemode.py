@@ -1,5 +1,6 @@
 ########################################################################################
 #Property of Theorvolt. Don't skid >:(                                                 #
+#Alternative mode that uses coordinates instead of detection.                          #
 ########################################################################################
 
 import pyautogui, time, os, os.path, shutil, psutil
@@ -23,13 +24,13 @@ mc.FAILSAFE = True
 ########################################################################################
 
 def world():
-    world = mc.locateOnScreen(l+"\\world.png") #Is located at: (817, 688, 250, 223)    
-    print(world)
+    print(mc.locateOnScreen(l+"\\world.png"))
+    world = mc.locateOnScreen(l+"\\world.png") #Is located at: (817, 688, 250, 223)
     world_int = mc.center(world)
     print(world_int)
-    mc.click(world_int)
-
+    mc.click(945, 811)
     
+
 def unit():
     unit = mc.locateOnScreen(l+"\\units.png")
     returner = mc.locateOnScreen(l+"\\return.png") #Is located at: (1882, 951, 38, 36)
@@ -37,27 +38,14 @@ def unit():
     mc.click(returner_int)#click at (1901, 969)
 
 def nox_back():
-    nox_back = mc.locateOnScreen(l+"\\return.png") #Is located at: (1882, 951, 38, 36)
-    print(nox_back)
-    nx_bk = mc.center(nox_back)
-    print(nx_bk)
-    mc.click(nx_bk)
-    
+    mc.click((1901,969))
+
 def nox_home():
-    nox_home = mc.locateOnScreen(l+"\\menu.PNG")
-    print(nox_home)
-    nx_hm = mc.center(nox_home)
-    print(nx_hm)
-    mc.click(nx_hm)
+    mc.click(1903, 1007)
 
 def end_session():
     #Detects run out of NRG. TODO
     print("undone")
-
-def grandshelt():
-    mc.dragRel(-400,0, duration=3)
-    grandshelt = mc.locateOnScreen(l+"\\grandshelt.png")
-    print(type(grandshelt))
 
 def do_es():
     no = input("One run or infinite?")
@@ -67,84 +55,7 @@ def do_es():
     if no == "infinite":
         print("undone")
         #Does the same thing but once at 1 nrg, waits 5 minutes before doing.
-
-def trial():
-    world()
-    time.sleep(2)
-    grandshelt()
-
-def unit1():
-    mc.click(792,723)
-    
-def unit2():
-    mc.click(1068,721)
-    
-def unit3():
-    mc.click(784,828)
-
-def unit4():
-    mc.click(1062,835)
-
-def unit5():
-    mc.click(782, 933)
-    
-def unit6():
-    mc.click(1084,928)
-
-def auto():
-    mc.click(719,1041)
-    
-def allout():
-    unit1()
-    unit2()
-    unit3()
-    unit4()
-    unit5()
-    unit6()
-
-
-def loop():
-    es_loop = mc.locateOnScreen(l+"\\es_exit.png")
-    print(es_loop)
-    es_lp = mc.center(es_loop)
-    print(es_lp)
-    mc.click(es_lp)
-    mc.moveTo(1917,1060)
-    time.sleep(5)
-    check1 = mc.locateOnScreen(l+"\\es_exitm.png")
-    print(check1)
-    if isinstance(check1, tuple) == True:
-        mc.click(938,946)
-    time.sleep(2)
-    mc.click(930,370)
-    time.sleep(2)
-    mc.click(940,950)
-    time.sleep(12)
-    print("1")
-    unit3()
-    unit1()
-    time.sleep(12)
-    print("2")
-    unit3()
-    unit1()
-    time.sleep(12)
-    print("3")
-    unit3()
-    unit1()
-    time.sleep(15)
-    #Mission ends around here.
-    mc.click(942,946)
-    time.sleep(2)
-    mc.click(942,946)
-    mc.click(950,948)
-    mc.click(950,948)
-    
-    
-
-    
-    
         
-
 ########################################################################################
 #Begins the bot.                                                                       #
 ########################################################################################
